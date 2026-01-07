@@ -8,6 +8,7 @@ This repository contains my Rust learning journey with Rustlings exercises. My g
 3. [✔️] If
 4. [✔️] Primitive Types
 5. [✔️] Vecs
+6. [✔️] Move Semantics
 
 ## 📝 Notes
 
@@ -48,7 +49,15 @@ This repository contains my Rust learning journey with Rustlings exercises. My g
 - Add elements with `.push()`, create empty with `Vec::new()`
 - Loop through slice `&[i32]` thwi `for &element in input`
 - Iterator pattern: `.iter().map(|x| x * 2).collect()` transforms elements
-- Dereference with `*v` to compare vector contents with array (haven't used it though)
+
+### 06. Move Semantics
+- Ownership: Each value has a single owner; when owner goes out of scope, value is dropped
+- Move: Passing a value to a function transfers ownership (moves it) by default
+- Mutability: Parameters can be `mut` to allow modification: `fn fill_vec(mut vec: Vec<i32>)`
+- Clone: Use `.clone()` to create a copy and keep the original accessible
+- Borrowing: Mutable borrows (`&mut`) must be used one at a time, no overlapping borrows
+- References vs Ownership: Use `&String` to borrow without taking ownership; use `String` to take ownership
+- Key concepts: choosing between borrowing (`&T`) and ownership transfer depending on whether the function needs to consume the value
 
 ### Quiz 1
 - Wrote function with `u32` params and return type
